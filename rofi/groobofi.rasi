@@ -1,13 +1,12 @@
 configuration {
 	modi:                       "drun,window";
-    show-icons:                 true;
-    display-drun:               "";
-    display-window:             "";
+	show-icons:                 true;
+	display-drun:               "";
+	display-window:             "";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
 
-/*****----- Global Properties -----*****/
 @import                          "colors.rasi"
 
 * {

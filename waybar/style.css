@@ -9,175 +9,169 @@
 @define-color yellow-pink #FFB5C6;
 
 * {
-	font-size: 16px;
-	font-weight: bold;
-	font-family: "JetBrainsMono Nerd Font Mono";
-	min-width: 5px;
-	min-height: 0px;
-	border: none;
-	border-radius: 0;
-	box-shadow: none;
-	text-shadow: none;
-	padding: 0px;
-
+  font-size: 16px;
+  font-weight: bold;
+  /* font-family: "JetBrainsMono Nerd Font Mono"; */
+  min-width: 5px;
+  min-height: 0px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
 }
 
 #window {
-	padding: 15px 10px 15px 10px;
+  padding: 15px 10px 15px 10px;
 }
 
 window#waybar {
-	transition-property: background-color;
-	transition-duration: 0.5s;
-	background-color: transparent;
-	color: lighter(@selected);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background-color: transparent;
+  color: lighter(@selected);
 }
 
 .modules-left {
-	transition-property: background-color;
-	transition-duration: 0.5s;
-	margin: 0px 6px 6px 6px;
-	border-radius: 4px;
-	background: alpha(@alt-background, 0.6);
-	color: lighter(@selected);
-	padding: 4px 0px 4px 0px;
+  font-family: "Sleep Token Runes", mono;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  margin: 0px 6px 6px 6px;
+  border-radius: 4px;
+  background: alpha(@alt-background, 0.6);
+  color: lighter(@selected);
+  padding: 4px 0px 4px 0px;
 }
 
 .modules-center {
-	transition-property: background-color;
-	transition-duration: 0.5s;
-	margin: 0px 6px 6px 6px;
-	border-radius: 4px;
-	background: alpha(@alt-background, 0.6);
-	color: lighter(@selected);
-	padding: 4px 0px 4px 0px;
+  font-family: "JetBrainsMono Nerd Font Mono";
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  margin: 0px 6px 6px 6px;
+  border-radius: 4px;
+  background: alpha(@alt-background, 0.6);
+  color: lighter(@selected);
+  padding: 4px 0px 4px 0px;
 }
 
 .modules-right {
-	transition-property: background-color;
-	transition-duration: 0.5s;
-	margin: 0px 6px 6px 6px;
-	border-radius: 4px;
-	background: alpha(@alt-background, 0.6);
-	color: lighter(@selected);
-	padding: 4px 0px 4px 0px;
+  font-family: "JetBrainsMono Nerd Font Mono";
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  margin: 0px 6px 6px 6px;
+  border-radius: 4px;
+  background: alpha(@alt-background, 0.6);
+  color: lighter(@selected);
+  padding: 4px 0px 4px 0px;
 }
 
 tooltip {
-	border-radius: 8px;
-	padding: 2px;
-	border: 1px solid lighter(@selected);
-	background: alpha(@background, 0.8);
-	color: @text;
+  border-radius: 8px;
+  padding: 2px;
+  border: 1px solid lighter(@selected);
+  background: alpha(@background, 0.8);
+  color: @text;
 }
 
 tooltip label {
-	font-size: 14px;
+  font-size: 14px;
 }
 
-
 #workspaces {
-	padding: 4px 0px 4px 0px;
+  padding: 4px 0px 4px 0px;
 }
 
 #workspaces button {
-	background-color: transparent;
-	transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1.0);
-	background: transparent;
-	color: alpha(@text, 0.3);
-	border-radius: 4px;
-	margin: 2px 2px;
-	padding: 4px 0 4px 0;
+  background-color: transparent;
+  transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1);
+  background: transparent;
+  color: alpha(@text, 0.3);
+  border-radius: 4px;
+  margin: 2px 2px;
+  padding: 4px 0 4px 0;
 }
 
-
 #workspaces button:hover {
-	background: alpha(@alt-selected, 0.6);
-	color: @pink;
+  background: alpha(@alt-selected, 0.6);
+  color: @pink;
 }
 
 #workspaces button.active {
-	background: alpha(@alt-selected, 0.6);
-	color: @pink
+  background: alpha(@alt-selected, 0.6);
+  color: @pink;
 }
 
 #workspaces button.urgent {
-	font-weight: bold;
-	background-color: @red-pink;
-	color: @text;
-
+  font-weight: bold;
+  background-color: @red-pink;
+  color: @text;
 }
 
 #custom-dmark {
-	font-size: 24px;
-	color: alpha(@text, 0.6);
+  font-size: 24px;
+  color: alpha(@text, 0.6);
 }
 
 #custom-cpu-icon,
 #custom-memory-icon,
 #custom-disk-icon {
-	margin-top: 10px;
-	font-size: 30px;
-	color: @pink;
+  margin-top: 10px;
+  font-size: 30px;
+  color: @pink;
 }
 
 #cpu,
 #memory,
 #disk {
-	font-size: 14px;
-	font-weight: bold;
-	color: @text;
+  font-size: 14px;
+  font-weight: bold;
+  color: @text;
 }
 
-
 #cpu.critical {
-	color: @realyfuckingpink;
+  color: @realyfuckingpink;
 }
 
 #network {
-	background-color: transparent;
-	transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1.0);
-	background: transparent;
-	color: @pink;
-	padding: 0px 0 4px 0;
-	font-size: 22px;
+  background-color: transparent;
+  transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1);
+  background: transparent;
+  color: @pink;
+  padding: 0px 0 4px 0;
+  font-size: 22px;
 }
 
 #pulseaudio {
-	background-color: transparent;
-	transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1.0);
-	background: transparent;
-	color: @pink;
-	font-size: 22px;
-	padding: 4px 0 0px 0;
-
+  background-color: transparent;
+  transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1);
+  background: transparent;
+  color: @pink;
+  font-size: 22px;
+  padding: 4px 0 0px 0;
 }
 
 #privacy-item {
-	background-color: transparent;
-	transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1.0);
-	background: transparent;
-	color: @pink;
-	font-size: 22px;
-	padding: 4px 0 4px 0;
-
+  background-color: transparent;
+  transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1);
+  background: transparent;
+  color: @pink;
+  font-size: 22px;
+  padding: 4px 0 4px 0;
 }
 
-
 #custom-taskmanager {
-	background-color: transparent;
-	transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1.0);
-	background: transparent;
-	color: @pink;
-	font-size: 22px;
-	padding: 4px 0 0px 0;
-
+  background-color: transparent;
+  transition: background-color 0.49s cubic-bezier(0.33, 1, 0.68, 1);
+  background: transparent;
+  color: @pink;
+  font-size: 22px;
+  padding: 4px 0 0px 0;
 }
 
 #pulseaudio:hover,
 #network:hover,
 #custom-taskmanager:hover {
-	color: @text;
+  color: @text;
 }
 
 /* #pulseaudio.mic { */
@@ -190,100 +184,98 @@ tooltip label {
 /* } */
 
 #pulseaudio-slider slider {
-	min-width: 0px;
-	min-height: 0px;
-	background: transparent;
-	box-shadow: none;
-	border: none;
+  min-width: 0px;
+  min-height: 0px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 #pulseaudio-slider trough {
-	margin-top: 4px;
-	min-width: 6px;
-	min-height: 60px;
-	border-radius: 8px;
-	background-color: alpha(@background, 0.6);
-
+  margin-top: 4px;
+  min-width: 6px;
+  min-height: 60px;
+  border-radius: 8px;
+  background-color: alpha(@background, 0.6);
 }
 
 #pulseaudio-slider highlight {
-	border-radius: 20px;
-	background-color: lighter(@selected);
+  border-radius: 20px;
+  background-color: lighter(@selected);
 }
 
 #tray {
-	padding: 4px 0px 4px 0px;
-	margin-top: 5px;
+  padding: 4px 0px 4px 0px;
+  margin-top: 5px;
 }
 
 #bluetooth {
-	padding-top: 2px;
+  padding-top: 2px;
 }
 
 #battery {
-	border-radius: 8px;
-	padding: 4px 0px;
-	margin: 4px 2px 4px 2px;
+  border-radius: 8px;
+  padding: 4px 0px;
+  margin: 4px 2px 4px 2px;
 }
 
 #battery.discharging.warning {
-	animation-name: blink-yellow;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  animation-name: blink-yellow;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #battery.discharging.critical {
-	animation-name: blink-red;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  animation-name: blink-red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #clock {
-	font-weight: bold;
-	padding: 4px 2px 2px 2px;
+  font-weight: bold;
+  padding: 4px 2px 2px 2px;
 }
-
 
 #bluetooth.discoverable,
 #bluetooth.discovering,
 #bluetooth.pairable {
-	border-radius: 8px;
-	animation-name: blink-active;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  border-radius: 8px;
+  animation-name: blink-active;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#tray>.needs-attention {
-	animation-name: blink-active;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+#tray > .needs-attention {
+  animation-name: blink-active;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 @keyframes blink-active {
-	to {
-		background-color: @selected;
-		color: @text;
-	}
+  to {
+    background-color: @selected;
+    color: @text;
+  }
 }
 
 @keyframes blink-red {
-	to {
-		background-color: @reallyfuckingpink;
-		color: @text;
-	}
+  to {
+    background-color: @reallyfuckingpink;
+    color: @text;
+  }
 }
 
 @keyframes blink-yellow {
-	to {
-		background-color: @yellow-pink;
-		color: @text;
-	}
+  to {
+    background-color: @yellow-pink;
+    color: @text;
+  }
 }
