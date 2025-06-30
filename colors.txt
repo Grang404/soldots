@@ -1,0 +1,15 @@
+night		#0c0a0a
+smoke		#161212
+licorice 	#28151c
+
+text		#bea3ab	
+
+
+#873C56
+#6C394B
+#6C4C56
+#3F4043
+#857277
+#725E67
+#4E494D
+
