@@ -1,15 +1,12 @@
+solace		#bea3ab	
 night		#0c0a0a
 smoke		#161212
 licorice 	#28151c
-
-text		#bea3ab	
-
-
-#873C56
-#6C394B
-#6C4C56
-#3F4043
-#857277
-#725E67
-#4E494D
+ritual		#873c56
+veil		#d5afbc
+ache		#ffa3b1
+drift		#6C4C56
+graven		#725E67
+worship		#6c394b
+woundwood	#4e494d
 
