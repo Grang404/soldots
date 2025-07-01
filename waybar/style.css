@@ -136,6 +136,7 @@ tooltip label {
   color: @realyfuckingpink;
 }
 
+#bluetooth,
 #network,
 #pulseaudio,
 #privacy-item,
@@ -155,6 +156,11 @@ tooltip label {
   padding: 10px 0 0 0;
 }
 
+#bluetooth {
+  font-size: 20px;
+}
+
+#bluetooth:hover,
 #custom-power:hover,
 #pulseaudio:hover,
 #network:hover,
