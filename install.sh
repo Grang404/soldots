@@ -35,7 +35,7 @@ print_warning() {
 
 check_privileges() {
 	if [ "$EUID" -ne 0 ]; then
-		print_error "Run as sudo"
+		print_error "Run as sudo actually"
 		exit 1
 	fi
 
@@ -46,7 +46,7 @@ check_privileges() {
 
 	readonly USER_HOME
 	USER_HOME=$(eval echo ~"$SUDO_USER")
-	print_msg "Installing for user: $SUDO_USER (home: $USER_HOME)"
+	print_msg "Installing for user: $SUDO_USER"
 }
 
 update_system() {
@@ -65,8 +65,8 @@ install_packages() {
 		base base-devel git
 
 		# Hyprland ecosystem
-		hyprland hyprlock hyprpaper hyprshot hyprpicker
-		waybar wireplumber wl-clipboard wtype
+		hyprland hyprlock hyprshot hyprpicker
+		waybar wl-clipboard wtype
 		xdg-desktop-portal-hyprland xdg-utils
 
 		# Fonts
@@ -82,7 +82,7 @@ install_packages() {
 
 		# System utilities
 		npm ntfs-3g p7zip pavucontrol ripgrep rsync tree unzip
-		cronie lm_sensors blueman bluez-utils swww openvpn
+		cronie lm_sensors blueman bluez-utils swww openvpn wireplumber
 	)
 
 	if ! pacman -S --needed --noconfirm "${packages[@]}"; then
@@ -234,6 +234,14 @@ install_fonts() {
 	else
 		print_msg "No fonts directory found, skipping font installation"
 	fi
+}
+
+set_wallpaper() {
+
+	if pgrep -x "swww-daemon" >/dev/null; then
+		swww img "$SCRIPT_DIR/wallpapers/eveninarcadia.png" --resize=crop --transition-type=wipe --transition-angle=30 --transition-step=20 --transition-fps=60
+	fi
+
 }
 
 cleanup() {
