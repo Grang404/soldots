@@ -2,17 +2,17 @@
 
 set -euo pipefail
 
-readonly RED='\033[0;31m'
-readonly GREEN='\033[0;32m'
-readonly BLUE='\033[0;34m'
-readonly YELLOW='\033[1;33m'
-readonly NC='\033[0m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
 
-readonly SCRIPT_DIR
+SCRIPT_DIR
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-readonly LOG_FILE
+LOG_FILE
 LOG_FILE="$SCRIPT_DIR/install_script.log"
-readonly BACKUP_DIR
+BACKUP_DIR
 BACKUP_DIR="$HOME/.config/config.bak"
 
 exec > >(tee -a "$LOG_FILE") 2>&1
@@ -44,7 +44,7 @@ check_privileges() {
 		exit 1
 	fi
 
-	readonly USER_HOME
+	USER_HOME
 	USER_HOME=$(eval echo ~"$SUDO_USER")
 	print_msg "Installing for user: $SUDO_USER"
 }
