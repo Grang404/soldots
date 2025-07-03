@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# TODO: Add input for resolution and display drivers
-# TODO: Fix polkit (use hyprpol?)
-
 set -euo pipefail
 
 readonly RED='\033[0;31m'
@@ -52,7 +49,6 @@ check_privileges() {
 	print_msg "Installing for user: $SUDO_USER (home: $USER_HOME)"
 }
 
-# Update system packages
 update_system() {
 	print_msg "Updating system packages..."
 	if ! pacman -Syu --noconfirm; then
@@ -62,12 +58,10 @@ update_system() {
 	print_success "System updated successfully"
 }
 
-# Install main packages
 install_packages() {
 	print_msg "Installing base packages..."
 
 	local packages=(
-		# Base system
 		base base-devel git
 
 		# Hyprland ecosystem
@@ -80,11 +74,11 @@ install_packages() {
 		ttf-nerd-fonts-symbols-mono noto-fonts noto-fonts-emoji
 
 		# Shell and utilities
-		zsh wget curl feh rofi-wayland yazi ffmpeg jq poppler
+		zsh wget curl feh rofi-wayland ffmpeg jq poppler
 		fd fzf zoxide imagemagick btop fastfetch less man-db man-pages
 
 		# Applications
-		firefox kitty obs-studio vlc
+		firefox kitty
 
 		# System utilities
 		npm ntfs-3g p7zip pavucontrol ripgrep rsync tree unzip
@@ -99,18 +93,16 @@ install_packages() {
 	print_success "Base packages installed successfully"
 }
 
-# Determine AUR helper
 detect_aur_helper() {
 	if command -v paru &>/dev/null; then
 		echo "paru"
 	elif command -v yay &>/dev/null; then
 		echo "yay"
 	else
-		echo "paru" # Default to paru if neither exists
+		echo "paru" # i choose for you
 	fi
 }
 
-# Install AUR helper
 install_aur_helper() {
 	local aur_helper
 	aur_helper=$(detect_aur_helper)
@@ -145,7 +137,6 @@ install_aur_helper() {
 	echo "$aur_helper"
 }
 
-# Install AUR packages
 install_aur_packages() {
 	local aur_helper="$1"
 
@@ -154,7 +145,6 @@ install_aur_packages() {
 	local aur_packages=(
 		qdirstat
 		nvibrant-bin
-		noisetorch
 	)
 
 	if ! sudo -u "$SUDO_USER" "$aur_helper" -S --needed --noconfirm "${aur_packages[@]}"; then
@@ -165,7 +155,6 @@ install_aur_packages() {
 	print_success "AUR packages installed successfully"
 }
 
-# Create backup of existing configs
 backup_existing_configs() {
 	print_msg "Creating backup of existing configurations..."
 
@@ -192,7 +181,6 @@ backup_existing_configs() {
 	fi
 }
 
-# Create symlinks for dotfiles
 create_symlinks() {
 	print_msg "Creating symlinks for configuration files..."
 
@@ -211,12 +199,10 @@ create_symlinks() {
 			continue
 		fi
 
-		# Remove existing config if it exists
 		if [ -e "$target_path" ]; then
 			rm -rf "$target_path"
 		fi
 
-		# Create symlink
 		if sudo -u "$SUDO_USER" ln -sf "$source_path" "$target_path"; then
 			print_success "Created symlink: $target_path -> $source_path"
 		else
@@ -226,7 +212,6 @@ create_symlinks() {
 	done
 }
 
-# Install custom fonts
 install_fonts() {
 	print_msg "Installing custom fonts..."
 
@@ -241,7 +226,6 @@ install_fonts() {
 			cp "$font_source"/*.{ttf,otf} "$fonts_dir/" 2>/dev/null || true
 			chown -R "$SUDO_USER:$SUDO_USER" "$fonts_dir"
 
-			# Update font cache
 			sudo -u "$SUDO_USER" fc-cache -fv &>/dev/null
 			print_success "Custom fonts installed and cache updated"
 		else
@@ -252,74 +236,34 @@ install_fonts() {
 	fi
 }
 
-# Enable system services
-enable_services() {
-	print_msg "Enabling system services..."
-
-	local services=(
-		"bluetooth.service"
-		"cronie.service"
-	)
-
-	for service in "${services[@]}"; do
-		if systemctl enable "$service" 2>/dev/null; then
-			print_success "Enabled $service"
-		else
-			print_warning "Failed to enable $service (may not be critical)"
-		fi
-	done
-}
-
-# Set default shell
-set_default_shell() {
-	print_msg "Setting zsh as default shell for $SUDO_USER..."
-
-	if chsh -s /usr/bin/zsh "$SUDO_USER"; then
-		print_success "Default shell set to zsh"
-	else
-		print_warning "Failed to set default shell (you can change it manually with 'chsh -s /usr/bin/zsh')"
-	fi
-}
-
-# Cleanup function
 cleanup() {
 	print_msg "Cleaning up temporary files..."
 	rm -rf /tmp/*_install 2>/dev/null || true
 	print_success "Cleanup completed"
 }
 
-# Main installation function
 main() {
 	print_msg "Starting Hyprland dotfiles installation..."
 	print_msg "Log file: $LOG_FILE"
 
-	# Setup
 	check_privileges
 
-	# System updates and packages
 	update_system
 	install_packages
 
-	# AUR helper and packages
 	local aur_helper
 	aur_helper=$(install_aur_helper)
 	install_aur_packages "$aur_helper"
 
-	# Configuration
 	backup_existing_configs
 	create_symlinks
 	install_fonts
 
-	# System configuration
-	enable_services
-	set_default_shell
-
-	# Cleanup
 	cleanup
 
-	print_success "🎉 Installation completed successfully!"
-	print_msg "Please reboot your system to ensure all changes take effect"
-	print_msg "Your original configurations have been backed up to: $BACKUP_DIR"
+	print_success "🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉 done"
+	print_msg "maybe reboot now"
+	print_msg "OG configs are backed up in: $BACKUP_DIR"
 }
 
 main "$@"
