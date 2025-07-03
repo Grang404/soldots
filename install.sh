@@ -82,7 +82,7 @@ install_packages() {
 
 		# System utilities
 		npm ntfs-3g p7zip pavucontrol ripgrep rsync tree unzip
-		cronie lm_sensors blueman bluez-utils swww openvpn wireplumber
+		cronie lm_sensors blueman bluez-utils swww openvpn wireplumber lib32-nvidia-utils nvidia-utils
 	)
 
 	if ! pacman -S --needed --noconfirm "${packages[@]}"; then
