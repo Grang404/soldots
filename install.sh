@@ -75,7 +75,7 @@ install_packages() {
 
 		# Shell and utilities
 		zsh wget curl feh rofi-wayland ffmpeg jq poppler
-		fd fzf zoxide imagemagick btop fastfetch less man-db man-pages
+		fd fzf zoxide imagemagick less man-db man-pages
 
 		# Applications
 		firefox kitty
@@ -160,7 +160,7 @@ backup_existing_configs() {
 
 	mkdir -p "$BACKUP_DIR"
 
-	local config_dirs=("hypr" "waybar" "kitty" "gtk-2.0" "gtk-3.0" "gtk-4.0" "fastfetch" "rofi")
+	local config_dirs=("hypr" "waybar" "kitty" "gtk-2.0" "gtk-3.0" "gtk-4.0" "rofi")
 	local backed_up=false
 
 	for dir in "${config_dirs[@]}"; do
@@ -188,7 +188,7 @@ create_symlinks() {
 	mkdir -p "$config_dir"
 	chown "$SUDO_USER:$SUDO_USER" "$config_dir"
 
-	local config_dirs=("hypr" "waybar" "kitty" "gtk-2.0" "gtk-3.0" "gtk-4.0" "fastfetch" "rofi")
+	local config_dirs=("hypr" "waybar" "kitty" "gtk-2.0" "gtk-3.0" "gtk-4.0" "rofi")
 
 	for dir in "${config_dirs[@]}"; do
 		local source_path="$SCRIPT_DIR/$dir"
