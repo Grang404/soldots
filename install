@@ -130,7 +130,7 @@ restore_backups() {
 				chattr -i "$original" 2>/dev/null || true
 			fi
 
-			rm -rf "$original" 2>/dev/null || true
+			rm -rf "$original" 2>/dev/null || unlink "$original" 2>/dev/null || true
 			mv "$backup" "$original"
 			chown -R "$SUDO_USER:$SUDO_USER" "$original" 2>/dev/null || true
 		fi
@@ -355,34 +355,37 @@ move_dotfiles() {
 		[ -e "$item" ] || continue
 		local item_name
 		item_name=$(basename "$item")
+		local abs_item
+		abs_item="$(realpath "$item")"
 
 		case "$item_name" in
 		zshrc)
-			cp "$item" "$USER_HOME/.zshrc"
-			chown "$SUDO_USER:$SUDO_USER" "$USER_HOME/.zshrc"
-			print_msg "Copied zshrc to $USER_HOME/.zshrc"
+			ln -sf "$abs_item" "$USER_HOME/.zshrc"
+			chown -h "$SUDO_USER:$SUDO_USER" "$USER_HOME/.zshrc"
+			print_msg "Linked zshrc -> $USER_HOME/.zshrc"
 			;;
 		zprofile)
-			cp "$item" "$USER_HOME/.zprofile"
-			chown "$SUDO_USER:$SUDO_USER" "$USER_HOME/.zprofile"
-			print_msg "Copied zprofile to $USER_HOME/.zprofile"
+			ln -sf "$abs_item" "$USER_HOME/.zprofile"
+			chown -h "$SUDO_USER:$SUDO_USER" "$USER_HOME/.zprofile"
+			print_msg "Linked zprofile -> $USER_HOME/.zprofile"
 			;;
 		wallpapers)
-			cp -r "$item" "$USER_HOME/Pictures/"
-			chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/Pictures/"
-			print_msg "Copied wallpapers to $USER_HOME/wallpapers"
+			ln -sf "$abs_item" "$USER_HOME/Pictures/wallpapers"
+			chown -h "$SUDO_USER:$SUDO_USER" "$USER_HOME/Pictures/wallpapers"
+			print_msg "Linked wallpapers -> $USER_HOME/Pictures/wallpapers"
 			;;
 		*)
-			cp -r "$item" "$config_dir/"
-			print_msg "Copied $item_name to $config_dir"
+			ln -sf "$abs_item" "$config_dir/$item_name"
+			chown -h "$SUDO_USER:$SUDO_USER" "$config_dir/$item_name"
+			print_msg "Linked $item_name -> $config_dir/$item_name"
 			;;
 		esac
 	done
 
-	chown -R "$SUDO_USER:$SUDO_USER" "$config_dir"
+	chown -h "$SUDO_USER:$SUDO_USER" "$config_dir"
 
 	print_msg "Added device profile to hyprland.conf"
-	print_success "Dotfiles moved successfully"
+	print_success "Dotfiles linked successfully"
 }
 
 config_xdg() {
