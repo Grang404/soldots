@@ -370,9 +370,10 @@ move_dotfiles() {
 			print_msg "Linked zprofile -> $USER_HOME/.zprofile"
 			;;
 		wallpapers)
-			ln -sf "$abs_item" "$USER_HOME/Pictures/wallpapers"
-			chown -h "$SUDO_USER:$SUDO_USER" "$USER_HOME/Pictures/wallpapers"
-			print_msg "Linked wallpapers -> $USER_HOME/Pictures/wallpapers"
+			mkdir -p "$USER_HOME/Pictures"
+			cp -r "$abs_item" "$USER_HOME/Pictures/wallpapers"
+			chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/Pictures/wallpapers"
+			print_msg "Copied wallpapers -> $USER_HOME/Pictures/wallpapers"
 			;;
 		*)
 			ln -sf "$abs_item" "$config_dir/$item_name"
