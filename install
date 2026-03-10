@@ -229,6 +229,12 @@ enable_multilib() {
 	print_success "Multilib enabled successfully"
 }
 
+install_steam_libs() {
+	print_msg "Installing Steam dependancies..."
+	pacman -S --needed --noconfirm mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
+	print_success "AMD Vulkan drivers installed"
+}
+
 install_packages() {
 	print_msg "Installing base packages..."
 	INSTALLATION_STARTED=true
@@ -311,7 +317,6 @@ enable_services() {
 	)
 
 	local services=("${system_services[@]}")
-	[[ "$PROFILE" == "laptop" ]] && services+=("${laptop_services[@]}")
 
 	for service in "${services[@]}"; do
 		if ! systemctl list-unit-files "$service" &>/dev/null; then
@@ -505,6 +510,7 @@ main() {
 
 	update_system
 	enable_multilib
+	install_steam_libs
 	install_packages
 	enable_services
 	move_dotfiles
