@@ -1,2 +1,9 @@
 #!/usr/bin/env bash
-# Enter noisetorch script here
+
+sleep 2
+
+MIC_SOURCE="alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_797_2021_01_30_71183-00.analog-stereo"
+
+noisetorch -i "$MIC_SOURCE" &
+sleep 2
+noisetorch -enable -i "$MIC_SOURCE"
