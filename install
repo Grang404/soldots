@@ -378,7 +378,7 @@ move_dotfiles() {
 		wallpapers)
 			mkdir -p "$USER_HOME/Pictures"
 			cp -r "$abs_item" "$USER_HOME/Pictures/wallpapers"
-			chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/Pictures/wallpapers"
+			chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME/Pictures"
 			print_msg "Copied wallpapers -> $USER_HOME/Pictures/wallpapers"
 			;;
 		*)
