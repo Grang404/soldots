@@ -522,6 +522,8 @@ main() {
 	enable_multilib
 	install_steam_libs
 	install_packages
+	install_paru
+	install_aur_packages
 	enable_services
 	move_dotfiles
 	chsh -s /usr/bin/zsh "$SUDO_USER"
