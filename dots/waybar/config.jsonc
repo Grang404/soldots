@@ -14,7 +14,6 @@
 
   "modules-right": [
     "tray",
-    "privacy",
     "group/audio",
     "bluetooth",
     "network",
@@ -117,19 +116,6 @@
   },
 
 
-  "privacy": {
-    "orientation": "vertical",
-    "icon-spacing": 4,
-    "icon-size": 14,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      }
-    ]
-  },
   "group/audio": {
     "orientation": "inherit",
     "drawer": {
@@ -138,7 +124,6 @@
     },
     "modules": [
       "pulseaudio",
-      // "pulseaudio#mic",
       "pulseaudio/slider"
     ]
   },
@@ -163,15 +148,6 @@
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "smooth-scrolling-threshold": 1
-  },
-  "pulseaudio#mic": {
-    "format": "{format_source}",
-    "format-source": "",
-    "format-source-muted": "",
-    "tooltip-format": "{volume}% {source_desc} ",
-    "on-click": "pactl set-source-mute 0 toggle",
-    // "on-scroll-down": "pactl set-source-volume 0 -1%",
-    // "on-scroll-up": "pactl set-source-volume 0 +1%"
   },
   "pulseaudio/slider": {
     "min": 0,
@@ -233,6 +209,6 @@
   "custom/power": {
     "format": "⏻",
     "tooltip": false,
-    "on-click": "~/.config/rofi/scripts/power.sh"
+    "on-click": "~/.config/rofi/scripts/power"
   },
 }
