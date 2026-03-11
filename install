@@ -369,6 +369,12 @@ move_dotfiles() {
 			chown -h "$SUDO_USER:$SUDO_USER" "$USER_HOME/.zprofile"
 			print_msg "Linked zprofile -> $USER_HOME/.zprofile"
 			;;
+
+		zshenv)
+			ln -sf "$abs_item" "$USER_HOME/.zshenv"
+			chown -h "$SUDO_USER:$SUDO_USER" "$USER_HOME/.zshenv"
+			print_msg "Linked zshenv -> $USER_HOME/.zshenv"
+			;;
 		wallpapers)
 			mkdir -p "$USER_HOME/Pictures"
 			cp -r "$abs_item" "$USER_HOME/Pictures/wallpapers"
