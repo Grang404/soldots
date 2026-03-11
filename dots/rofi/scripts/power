@@ -8,12 +8,12 @@ theme='power'
 # uptime="$(uptime -p | sed -e 's/up //g')"
 
 # Options
-shutdown=' Shutdown'
-reboot=' Reboot'
-lock=' Lock'
-logout=' Logout'
-yes=' Yes'
-no=' No'
+shutdown='⏻ Shutdown'
+reboot=' Reboot'
+lock=' Lock'
+logout='󰗽 Logout'
+yes=' Yes'
+no=' No'
 
 rofi_cmd() {
 	rofi -dmenu \
