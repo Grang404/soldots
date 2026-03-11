@@ -28,7 +28,6 @@
     "tooltip": false,
     "rotate": 90,
     "justify": "center",
-    // "icon":true,
     "separate-outputs": true
 
   },
@@ -37,18 +36,6 @@
     "format": "{icon}",
     "on-click": "activate",
     "all-outputs": true,
-    // "format-icons": {
-    //   "1": "一",
-    //   "2": "二",
-    //   "3": "三",
-    //   "4": "四",
-    //   "5": "五",
-    //   "6": "六",
-    //   "7": "七",
-    //   "8": "八",
-    //   "9": "九",
-    //   "10": "十"
-    // }
     "format-icons": {
       "1": "A",
       "2": "B",
@@ -180,6 +167,7 @@
     "format-off": "󰂲",
     "format-disabled": "",
     "format-connected": "<b></b>",
+    "format-no-controller": "󰂲",
     "tooltip-format": "Devices: {num_connections} connected",
     "tooltip-format-connected": "Devices: {num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -190,7 +178,7 @@
   "custom/taskmanager": {
     "format": "",
     "tooltip": false,
-    "on-click":"GTK_THEME=Adwaita:dark gnome-system-monitor"
+    "on-click":"~/soldots/dots/rofi/scripts/process"
 
   },
 
