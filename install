@@ -257,8 +257,7 @@ install_packages() {
 	local utility_packages=(
 		zsh swww rofi ffmpeg jq poppler fd fzf zoxide imagemagick
 		btop fastfetch go less man-db man-pages npm
-		ntfs-3g p7zip ripgrep rsync luarocks tree unzip
-		cronie eza bind which qbittorrent networkmanager nano docker docker-compose blueman bluez-utils lm_sensors
+		ntfs-3g p7zip ripgrep rsync luarocks tree unzip eza bind which qbittorrent networkmanager nano docker docker-compose blueman bluez-utils lm_sensors
 
 	)
 
@@ -310,7 +309,6 @@ enable_services() {
 	print_msg "Enabling system services..."
 
 	local system_services=(
-		"cronie.service"
 		"lm_sensors.service"
 		"fstrim.timer"
 		"bluetooth.service"
