@@ -10,9 +10,9 @@ if [ ! -d "$WALLPAPER_DIR" ]; then
 	exit 1
 fi
 
-# Launch rofi with filebrowser and swww integration
+# Launch rofi with filebrowser and awww integration
 rofi -theme "$THEME_FILE" \
 	-show filebrowser \
 	-filebrowser-directory "$WALLPAPER_DIR" \
-	-filebrowser-command "swww img --resize=crop --transition-type=wipe --transition-angle=30 --transition-step=20 --transition-fps=60" \
+	-filebrowser-command "awww img --resize=crop --transition-type=wipe --transition-angle=30 --transition-step=20 --transition-fps=60" \
 	-filebrowser-sorting-method name
