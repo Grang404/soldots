@@ -299,6 +299,8 @@ install_aur_packages() {
 		visual-studio-code-bin
 		noisetorch
 		coolercontrol
+		ivpn
+		ivpn-ui
 	)
 
 	sudo -u "$SUDO_USER" paru -S --needed --noconfirm "${aur_packages[@]}"
