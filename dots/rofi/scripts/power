@@ -23,6 +23,7 @@ rofi_cmd() {
 confirm_cmd() {
 	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
 		-theme-str 'mainbox {children: [ "message", "listview" ]; padding: 20px;}' \
+		-theme-str 'message {background-color: transparent; border: 0px;}' \
 		-theme-str 'listview {columns: 2; lines: 1; spacing: 10px;}' \
 		-theme-str 'element {padding: 12px 24px;}' \
 		-theme-str 'element-text {horizontal-align: 0.5;}' \
