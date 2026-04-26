@@ -12,8 +12,8 @@ shutdown='⏻ Shutdown'
 reboot=' Reboot'
 lock=' Lock'
 logout='󰗽 Logout'
-yes=' Yes'
-no=' No'
+yes='󰄬 Yes'
+no='󰅖 No'
 
 rofi_cmd() {
 	rofi -dmenu \
