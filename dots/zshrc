@@ -246,9 +246,14 @@ alias ezvenv='py -m venv .venv'
 alias acvenv='source .venv/bin/activate'
 alias pipreq='pip install -r requirements.txt'
 alias pipfre='pip freeze > requirements.txt'
-alias amdlmao='python /home/sol/Documents/amdlmao/amdlmao.py'
+alias amdlmao='python /mnt/storage/amdlmao/amdlmao.py'
+alias launchSC='WINEPREFIX="/mnt/games/starcitizen/star-citizen" /home/sol/.local/share/Steam/compatibilitytools.d/GE-Proton10-34/files/bin/wineserver -k; bash /mnt/games/starcitizen/star-citizen/sc-launch.sh'
+alias djanlocal='py manage.py runserver'
 
+
+export PATH="$PATH:/mnt/storage/scripts"
 
 # global alias
 alias -g G='| grep'
 # eval "$(pyenv init -)"
+export PATH="$HOME/.local/bin:$PATH"
