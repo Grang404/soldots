@@ -240,18 +240,29 @@ alias cba='exit'
 alias uwu-pac='sudo pacman -S'
 alias uwu='sudo pacman -Syu'
 alias py='python'
-alias audiorelay='nohup ~/audiorelay/audiorelay-0.27.5/bin/AudioRelay > /dev/null 2>&1 &'
+alias audiorelay='nohup /home/sol/backup/audiorelay/audiorelay-0.27.5/bin/AudioRelay > /dev/null 2>&1 &'
 alias obsx='nohup env QT_QPA_PLATFORM=xcb /usr/bin/obs > /dev/null 2>&1 &'
 alias ezvenv='py -m venv .venv'
 alias acvenv='source .venv/bin/activate'
 alias pipreq='pip install -r requirements.txt'
 alias pipfre='pip freeze > requirements.txt'
-alias amdlmao='python /mnt/storage/amdlmao/amdlmao.py'
+alias amdlmao='python /home/sol/backup/amdlmao/amdlmao.py'
 alias launchSC='WINEPREFIX="/mnt/games/starcitizen/star-citizen" /home/sol/.local/share/Steam/compatibilitytools.d/GE-Proton10-34/files/bin/wineserver -k; bash /mnt/games/starcitizen/star-citizen/sc-launch.sh'
 alias djanlocal='py manage.py runserver'
 
 
-export PATH="$PATH:/mnt/storage/scripts"
+export PATH="$PATH:/home/sol/backup/scripts"
+
+odysseus() {
+  local dir=~/.repos/odysseus
+  case "$1" in
+    on|up|start)   (cd "$dir" && docker compose up -d) ;;
+    off|down|stop) (cd "$dir" && docker compose down) ;;
+    status|ps|"")  (cd "$dir" && docker compose ps) ;;
+    logs)          (cd "$dir" && docker compose logs -f "${2:-odysseus}") ;;
+    *) echo "usage: odysseus [on|off|status|logs [service]]" ;;
+  esac
+}
 
 # global alias
 alias -g G='| grep'
