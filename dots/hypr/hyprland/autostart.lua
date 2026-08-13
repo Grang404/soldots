@@ -1,0 +1,15 @@
+local home = os.getenv("HOME")
+hl.on("hyprland.start", function()
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("awww-daemon")
+	hl.exec_cmd("systemctl --user start hyprpolkitagent")
+	hl.exec_cmd(
+		"systemctl --user start --job-mode=ignore-dependencies xdg-desktop-portal.service xdg-desktop-portal-hyprland.service"
+	)
+	hl.exec_cmd(home .. "/fix-yeti.sh")
+	hl.exec_cmd("steam")
+	hl.exec_cmd("vesktop")
+	hl.exec_cmd("spotify")
+	hl.exec_cmd("flebop")
+end)
