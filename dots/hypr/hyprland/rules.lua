@@ -7,7 +7,7 @@ hl.window_rule({
 
 hl.window_rule({
 	match = {
-		class = "discord",
+		class = "vesktop",
 	},
 	workspace = 4,
 })
@@ -20,8 +20,8 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "steam",
 	match = {
-		name = "steam",
 		class = "steam",
 	},
 	workspace = 1,
@@ -30,9 +30,9 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "pavu",
 	match = {
-		name = "pavu",
-		match = "org.pulseaudio.pavucontrol",
+		class = "org.pulseaudio.pavucontrol",
 	},
 	float = true,
 	center = true,
@@ -40,8 +40,8 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "blueman-manager",
 	match = {
-		name = "blueman-manager",
 		class = "blueman-manager",
 	},
 	size = { "(monitor_w*0.45)", "(monitor_h*0.75)" },
